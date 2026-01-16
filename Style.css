@@ -58,4 +58,116 @@ button:hover{background:#1d4ed8;}
   .sidebar{width:100%;display:flex;overflow-x:auto;}
   .sidebar ul{display:flex;gap:5px;}
 }
+/* ------------------- MOBILE ENHANCEMENTS ------------------- */
+@media(max-width:768px){
+
+  /* Sidebar collapsible for mobile */
+  .sidebar{
+    position: relative;
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    background:#1e293b;
+    padding:10px 0;
+    overflow-x:auto;
+    justify-content:flex-start;
+  }
+  .sidebar ul{
+    display:flex;
+    flex-wrap:wrap;
+    width:100%;
+    gap:5px;
+    padding:0 10px;
+  }
+  .sidebar ul li{
+    flex:1 0 45%;
+    margin:5px 2px;
+    text-align:center;
+    padding:8px;
+  }
+
+  /* Main content full width */
+  .main-content{width:100%;padding:10px;}
+  .card{padding:15px;margin-bottom:15px;border-radius:10px;}
+
+  /* Dashboard alerts stacked, bigger tap area */
+  #alerts{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  #alerts p{
+    font-size:14px;
+    padding:12px;
+    border-radius:10px;
+    background:#f1f5f9;
+  }
+
+  /* Inputs & buttons bigger for tap */
+  input, select, button{
+    font-size:16px;
+    padding:12px;
+    margin-bottom:12px;
+  }
+
+  /* List items / cards stack properly */
+  .list-item{
+    flex-direction:column;
+    align-items:flex-start;
+    font-size:14px;
+    padding:12px;
+  }
+  .list-item span{
+    margin-top:8px;
+    display:flex;
+    gap:5px;
+  }
+
+  /* Tables responsive: horizontal scroll inside card */
+  table{
+    display:block;
+    overflow-x:auto;
+    width:100%;
+  }
+  th, td{
+    display:inline-block;
+    min-width:100px;
+    border:1px solid #cbd5e1;
+    padding:8px;
+  }
+
+  /* Hide fixed header of tables for mobile, optional */
+  thead tr{display:none;}
+
+  /* Login page adjustments */
+  .login-card{
+    margin:30px 10px;
+    padding:25px;
+  }
+}
+
+/* ------------------- SMALL MOBILE <480px ------------------- */
+@media(max-width:480px){
+  #alerts p{
+    font-size:13px;
+    padding:10px;
+  }
+  input, select, button{
+    font-size:15px;
+    padding:10px;
+  }
+  .list-item{
+    font-size:13px;
+    padding:10px;
+  }
+  .sidebar ul li{
+    flex:1 0 90%;
+    font-size:14px;
+    padding:10px;
+  }
+}
+
+.hidden {
+    display: none !important;
+}
 
