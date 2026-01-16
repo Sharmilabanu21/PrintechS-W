@@ -1,1 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Print Shop Manager Pro V7</title>
+<link rel="stylesheet" href="Style.css">
+</head>
+<body>
 
+<div class="wrapper">
+
+  <!-- LOGIN PAGE -->
+  <section id="loginPage" class="card login-card"><br><br>
+    <img src="PTlogo.png" alt="Company Logo" class="logo">
+    <h1 style="color: rgb(0, 0, 112); font-style: oblique;">Login</h1><br>
+    <input id="loginUser" placeholder="Username">
+    <input id="loginPass" type="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+  </section>
+
+  <!-- LEFT DASHBOARD -->
+  <aside class="sidebar hidden">
+    <div class="user-info">
+      Logged in as: <span id="loggedUser"></span><br>
+      Login Duration: <span id="loginTime"></span>
+    </div>
+    <button onclick="logout()" style="margin:10px 0;">Logout</button>
+
+    <ul>
+      <li data-section="dashboard" onclick="showSection('dashboard')">Home</li>
+      <li data-section="employee" onclick="showSection('employee')">Employees</li>
+      <li data-section="attendance" onclick="showSection('attendance')">Attendance</li>
+      <li data-section="stock" onclick="showSection('stock')">Stock</li>
+      <li data-section="customer" onclick="showSection('customer')">Customers</li>
+      <li data-section="accounts" onclick="showSection('accounts')">Accounts</li>
+    </ul>
+  </aside>
+
+  <!-- RIGHT CONTENT -->
+  <main class="main-content hidden">
+
+    <!-- DASHBOARD -->
+     <img src="PTlogo.png" alt="Company Logo" class="logo">
+    <section id="dashboard" class="card">
+      <h2>🏠 Dashboard</h2>
+      <div id="alerts">
+        <p>Employees Logged In: <span id="empLoggedIn">0</span></p>
+        <p>Urgent Stocks: <span id="urgentStocks">0</span></p>
+        <p>Urgent Customers: <span id="urgentCustomers">0</span></p>
+      </div>
+    </section>
+
+    <!-- EMPLOYEE -->
+    <section id="employee" class="card hidden">
+      <h2>👥 Employee Management</h2>
+      <input id="empName" placeholder="Name">
+      <select id="empRole">
+        <option value="">Role</option>
+        <option>Admin</option>
+        <option>Designer</option>
+        <option>Printer</option>
+        <option>Finisher</option>
+      </select>
+      <input id="empPhone" placeholder="Phone">
+      <input id="empUsername" placeholder="Username">
+      <input id="empPassword" type="password" placeholder="Password">
+      <button onclick="addEmployee()">Add Employee</button>
+      <ul id="empList" class="list-card"></ul>
+    </section>
+
+    <!-- ATTENDANCE -->
+    <section id="attendance" class="card hidden">
+      <h2>📝 Attendance</h2>
+      <select id="attEmp"></select>
+      <button onclick="markAttendance()">Mark Present</button>
+      <ul id="attList" class="list-card"></ul>
+    </section>
+
+    <!-- STOCK -->
+    <section id="stock" class="card hidden">
+      <h2>📦 Stock Management</h2>
+      <input id="itemName" placeholder="Item Name">
+      <input id="itemAvailable" type="number" placeholder="Available Quantity">
+      <input id="itemRequired" type="number" placeholder="Minimum Required">
+      <button onclick="addStock()">Save Stock</button>
+      <div id="stockList" class="list-card"></div>
+    </section>
+
+    <!-- CUSTOMER -->
+    <section id="customer" class="card hidden">
+      <h2>👤 Customer Management</h2>
+      <input id="cusName" placeholder="Customer Name">
+      <input id="cusPhone" placeholder="Phone">
+      <label>Order Placed Date:</label>
+      <input id="orderPlaced" type="date">
+      <label>Order Deadline:</label>
+      <input id="orderDeadline" type="date">
+      <button onclick="addCustomer()">Add Customer</button>
+      <ul id="cusList" class="list-card"></ul>
+    </section>
+
+    <!-- ACCOUNTS -->
+    <section id="accounts" class="card hidden">
+      <h2>💰 Accounts</h2>
+
+      <h3>Employee Phase</h3>
+      <table border="1" cellpadding="10" style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr>
+            <th>Employee</th>
+            <th>Role</th>
+            <th>Hours Worked</th>
+            <th>Salary</th>
+          </tr>
+        </thead>
+        <tbody id="accountsEmployees"></tbody>
+      </table>
+
+      <h3>Agent Phase</h3>
+      <table border="1" cellpadding="10" style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr>
+            <th>Agent</th>
+            <th>Job</th>
+            <th>Amount per Job</th>
+            <th>Total Amount</th>
+          </tr>
+        </thead>
+        <tbody id="accountsAgents"></tbody>
+      </table>
+
+      <h3>Shop Expenses</h3>
+      <table border="1" cellpadding="10" style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr>
+            <th>Expense Name</th>
+            <th>Amount</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="accountsExpenses"></tbody>
+      </table>
+
+    </section>
+
+  </main>
+</div>
+
+<script src="style.js"></script>
+</body>
+</html>
